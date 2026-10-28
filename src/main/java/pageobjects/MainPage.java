@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -96,93 +96,18 @@ public void openSite() {
         return new OrderFirstPage(driver);
     }
 
-    public void clickTextQuestionCoast() {
-        driver.findElement(idQuestionCoast).click();
-    }
-
-    public void checkTextAnswerCoast(String expectedText) {
+    public void clickQuestionByIndex(int index) {
+        By question = By.id("accordion__heading-" + index);
         new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerCoast)));
-        String actualText = driver.findElement(textAnswerCoast).getText();
-        Assert.assertEquals(expectedText, actualText);
+                .until(ExpectedConditions.elementToBeClickable(question))
+                .click();
     }
 
-    public void clickQuestionFewScooters() {
-        driver.findElement(idQuestionFewScooters).click();
-    }
-
-    public void checkTextAnswerFewScooters(String expectedText) {
+    public String getAnswerTextByIndex(int index) {
+        By answer = By.xpath("//div[@id='accordion__panel-" + index + "']//p");
         new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerFewScooters)));
-        String actualText = driver.findElement(textAnswerFewScooters).getText();
-        Assert.assertEquals(expectedText, actualText);
+                .until(ExpectedConditions.visibilityOfElementLocated(answer));
+        return driver.findElement(answer).getText();
     }
-
-    public void clickQuestionTimeRent() {
-        driver.findElement(idQuestionTimeRent).click();
-    }
-
-    public void checkTextAnswerTimeRent(String expectedText) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerTimeRent)));
-        String actualText = driver.findElement(textAnswerTimeRent).getText();
-        Assert.assertEquals(expectedText, actualText);
-    }
-
-    public void clickQuestionRentToday() {
-        driver.findElement(idQuestionRentToday).click();
-    }
-
-    public void checkTextAnswerRentToday(String expectedText) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerRentToday)));
-        String actualText = driver.findElement(textAnswerRentToday).getText();
-        Assert.assertEquals(expectedText, actualText);
-    }
-
-    public void clickQuestionExtendOrReturn() {
-        driver.findElement(idQuestionExtendOrReturn).click();
-    }
-
-    public void checkTextAnswerExtendOrReturn(String expectedText) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerExtendOrReturn)));
-        String actualText = driver.findElement(textAnswerExtendOrReturn).getText();
-        Assert.assertEquals(expectedText, actualText);
-    }
-
-    public void clickQuestionAboutCharger() {
-        driver.findElement(idQuestionAboutCharger).click();
-    }
-
-    public void checkTextAnswerAboutCharger(String expectedText) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerAboutCharger)));
-        String actualText = driver.findElement(textAnswerAboutCharger).getText();
-        Assert.assertEquals(expectedText, actualText);
-    }
-
-    public void clickQuestionDenyOrder() {
-        driver.findElement(idQuestionDenyOrder).click();
-    }
-
-    public void checkTextAnswerDenyOrder(String expectedText) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerDenyOrder)));
-        String actualText = driver.findElement(textAnswerDenyOrder).getText();
-        Assert.assertEquals(expectedText, actualText);
-    }
-
-    public void clickQuestionDeliveryOutsideMKAD() {
-        driver.findElement(idQuestionDeliveryOutsideMKAD).click();
-    }
-
-    public void checkTextAnswerDeliveryOutsideMKAD(String expectedText) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOf(driver.findElement(textAnswerDeliveryOutsideMKAD)));
-        String actualText = driver.findElement(textAnswerDeliveryOutsideMKAD).getText();
-        Assert.assertEquals(expectedText, actualText);
-    }
-
 
 }

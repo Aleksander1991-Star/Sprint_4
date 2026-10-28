@@ -24,13 +24,11 @@ public class DriverFactory extends ExternalResource {
     public void initChrome() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public void initFirefox() {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Override

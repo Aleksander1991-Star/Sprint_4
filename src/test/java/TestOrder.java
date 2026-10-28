@@ -3,9 +3,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import pageObjects.MainPage;
-import pageObjects.OrderFirstPage;
-import pageObjects.OrderSecondPage;
+import pageobjects.MainPage;
+import pageobjects.OrderFirstPage;
+import pageobjects.OrderSecondPage;
 
 
 import static org.junit.Assert.assertTrue;
