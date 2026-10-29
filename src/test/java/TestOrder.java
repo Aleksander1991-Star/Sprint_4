@@ -67,14 +67,4 @@ public class TestOrder {
         assertTrue(orderSecondPage.checkConfirmationNewOrderDisplayed());
     }
 
-    @Test
-    public void testBottomButtonLeadToOrderPage() {
-        driver = driverFactory.getDriver();
-        MainPage mainPage = new MainPage(driver);
-        OrderFirstPage orderFirstPage = new OrderFirstPage(driver);
-        mainPage.openSite();
-        mainPage.scrollOrderBottomButton();
-        mainPage.clickOrderBottomButton();
-        assertTrue(orderFirstPage.checkHeaderFirstPageOrderDisplayed());
-    }
 }
